@@ -1,5 +1,7 @@
 # AutoLink
 
+[![Version](https://img.shields.io/nuget/v/AutoLink.svg)](https://www.nuget.org/packages/AutoLink)
+
 AutoLink is a .NET PCL to perform autolinking on texts, i.e. replace URIs with HTML links.
 
 AutoLink is configurable:
