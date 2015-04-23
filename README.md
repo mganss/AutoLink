@@ -20,7 +20,7 @@ AutoLink tries to exclude trailing punctuation (`!?,.:;`), closing parentheses, 
 
 ```C#
 var autolink = new AutoLink();
-var text = @"(http://en.wikipedia.org/wiki/Link_(film)).";
+var text = @"Check it (http://x.org/wiki/Link_(film)).";
 var html = autolink.Link(text);
-// -> (<a href="http://en.wikipedia.org/wiki/Link_(film)">http://en.wikipedia.org/wiki/Link_(film)</a>).
+// -> Check it (<a href="http://x.org/wiki/Link_(film)">http://x.org/wiki/Link_(film)</a>).
 ```
