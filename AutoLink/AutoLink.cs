@@ -40,7 +40,7 @@ namespace Ganss.Text
         /// This method assumes that the input text does not contain HTML but only raw text.
         /// </para>
         /// <para>
-        /// Effort is made to exclude trailing punctuation from the end of the URI while trying to include parentheses and braces that are part of the URI.
+        /// Effort is made to exclude trailing punctuation from the end of the URI while trying to include parentheses that are part of the URI.
         /// </para>
         /// <example>
         /// <code>
@@ -74,7 +74,6 @@ namespace Ganss.Text
         private int FindEnd(string s, int start)
         {
             var parens = 0;
-            var brackets = 0;
             var end = start;
 
             // skip over URI characters, counting balanced parens
@@ -84,8 +83,6 @@ namespace Ganss.Text
                 if (!IsUriChar(c)) break;
                 if (c == '(') parens++;
                 else if (c == ')') parens--;
-                else if (c == '[') brackets++;
-                else if (c == ']') brackets--;
             }
 
             // trim punctuation and unbalanced parens from end
@@ -94,7 +91,6 @@ namespace Ganss.Text
                 var c = s[end - 1];
 
                 if (parens < 0 && c == ')') parens++;
-                else if (brackets < 0 && c == ']') brackets++;
                 else if (!IsPunctuation(c)) break;
 
                 end--;
@@ -105,7 +101,7 @@ namespace Ganss.Text
 
         private bool IsPunctuation(char c)
         {
-            return c == '!' || c == '?' || c == '.' || c == ':' || c == ';' || c == ',';
+            return c == '!' || c == '?' || c == '.' || c == ':' || c == ';' || c == ',' || c == ']';
         }
 
         private static bool IsUriChar(char c)
