@@ -28,8 +28,8 @@ namespace Ganss.Text
 
         private string DefaultReplace(string uri)
         {
-            var text = uri.StartsWith("www.", StringComparison.OrdinalIgnoreCase) ? "http://" + uri : uri;
-            return string.Format(@"<a href=""{0}"">{1}</a>", uri, text);
+            var url = uri.StartsWith("www.", StringComparison.OrdinalIgnoreCase) ? "http://" + uri : uri;
+            return string.Format(@"<a href=""{0}"">{1}</a>", url, uri);
         }
 
         /// <summary>

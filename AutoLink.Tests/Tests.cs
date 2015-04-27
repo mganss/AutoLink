@@ -63,7 +63,7 @@ namespace Ganss.Text.Tests
             var text = "Check it out at {0}.";
 
             var a = new AutoLink().Link(string.Format(text, url));
-            Assert.AreEqual(string.Format(text, Linkify(url, "http://" + url)), a);
+            Assert.AreEqual(string.Format(text, Linkify("http://" + url, url)), a);
         }
 
         [Test]
