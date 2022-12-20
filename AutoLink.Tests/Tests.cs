@@ -93,7 +93,7 @@ namespace Ganss.Text.Tests
         {
             var url = "http://www.example.com";
             var text = "Check it out: {0}!";
-            Func<string, string> r = u => string.Format(@"<a class=""button"" href=""{0}"">Click here</a>", u);
+            static string r(string u) => string.Format(@"<a class=""button"" href=""{0}"">Click here</a>", u);
             var a = new AutoLink().Link(string.Format(text, url), r);
             Assert.AreEqual(string.Format(text, r(url)), a);
         }
