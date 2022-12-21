@@ -13,7 +13,7 @@ namespace Ganss.Text
         /// <summary>
         /// The default URI prefixes which can start a URI.
         /// </summary>
-        public static readonly ISet<string> DefaultSchemes = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "http://", "https://", "ftp://", "mailto:", "www." };
+        public static ISet<string> DefaultSchemes { get; } = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "http://", "https://", "ftp://", "mailto:", "www." };
 
         AhoCorasick Schemes { get; set; }
 
